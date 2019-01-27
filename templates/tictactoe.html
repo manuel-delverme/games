@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TicTacToe</title>
+        <style>
+            table {
+                border-collapse: collapse;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top:40px;
+            }
+            td {
+                border: 1px solid blue;
+                width: 150px;
+                height: 150px;
+                font-size: 20px;
+                text-align: center;
+            }
+
+        </style>
+    </head>
+    <body background="http://cdn.backgroundhost.com/backgrounds/subtlepatterns/retina_wood.png">
+        <form action="" method="post">
+        <h1 align="center">Tic Tac Toe</h1>
+        <table>
+            {% for i in range(3) %}
+                <tr>
+                    {% for j in range(3) %}
+                        <td>
+                            {% if game[i][j] %}
+                                {{ game[i][j] }}
+                            {% else %}
+                                <a href="{{ url_for('play', row=i, col=j) }}">Play {{turn}} </a>
+                            {% endif %}
+                        </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+        </form>
+        <p><a href="{{ url_for('withAI') }}">Play with AI</a></p>
+        <p><a href="{{ url_for('reset') }}">Reset the board</a></p>
+    </body>
+</html>
+
