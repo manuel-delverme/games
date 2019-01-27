@@ -1,2 +1,2 @@
 # webFlask
-webapp to play tictactoe with minimax
+An webapp to play tictactoe with minimax
