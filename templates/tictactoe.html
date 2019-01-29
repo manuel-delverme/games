@@ -11,8 +11,8 @@
             }
             td {
                 border: 1px solid blue;
-                width: 150px;
-                height: 150px;
+                width: 130px;
+                height: 130px;
                 font-size: 20px;
                 text-align: center;
             }
@@ -23,6 +23,15 @@
         <form action="" method="post">
         <h1 align="center">Tic Tac Toe</h1>
         <table>
+            {% if winner %}
+            <style>
+            .off_on_win {
+                pointer-events: none;
+                cursor: default;
+            }
+            </style>
+            <p>{{ winner }} is the winner!</p>
+            {% endif %}
             {% for i in range(3) %}
                 <tr>
                     {% for j in range(3) %}
@@ -30,7 +39,7 @@
                             {% if game[i][j] %}
                                 {{ game[i][j] }}
                             {% else %}
-                                <a href="{{ url_for('play', row=i, col=j) }}">Play {{turn}} </a>
+                                <a href="{{ url_for('play', row=i, col=j) }}" class=off_on_win>Play {{turn}} </a>
                             {% endif %}
                         </td>
                     {% endfor %}
@@ -38,7 +47,9 @@
             {% endfor %}
         </table>
         </form>
-        <p><a href="{{ url_for('withAI') }}">Play with AI</a></p>
+        <p><a href="{{ url_for('with_ai') }}">Play with AI</a></p>
+        <p><a href="{{ url_for('minimax_2') }}">minimax2</a></p>
+        <p><a href="{{ url_for('random_player') }}">Play with random player</a></p>
         <p><a href="{{ url_for('reset') }}">Reset the board</a></p>
     </body>
 </html>
