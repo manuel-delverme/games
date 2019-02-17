@@ -1,6 +1,6 @@
 =======
 # webFlask
-An webapp to play tictactoe with minimax and a shallow NN
+A webapp to play tictactoe with minimax and a shallow NN
 
 ```
 export FLASK_APP=application
